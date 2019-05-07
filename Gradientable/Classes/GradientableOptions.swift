@@ -36,7 +36,7 @@ public struct GradientableOptions: GradientableAppliable {
     }
     
     func apply(layer: CAGradientLayer?) {
-        layer?.colors = colors?.flatMap { $0.cgColor } ?? layer?.colors
+        layer?.colors = colors?.compactMap { $0.cgColor } ?? layer?.colors
         layer?.locations = locations ?? layer?.locations
         applyDirection(layer: layer)
     }

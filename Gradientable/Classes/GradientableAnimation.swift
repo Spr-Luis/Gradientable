@@ -39,9 +39,9 @@ public struct GradientableAnimation: GradientableAppliable {
         }
         animation.delegate = delegate
         animation.duration = duration
-        animation.fromValue = from?.flatMap { $0.cgColor } ?? layer?.colors
+        animation.fromValue = from?.compactMap { $0.cgColor } ?? layer?.colors
         animation.toValue = colorSet
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = false
         layer?.add(animation, forKey: Keys.gradientableAnimation)
     }

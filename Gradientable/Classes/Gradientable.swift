@@ -16,14 +16,14 @@ protocol GradientableAppliable {
 public protocol Gradientable {}
 public extension Gradientable where Self: UIView {
     
-    public func set(options: GradientableOptions) {
+    func set(options: GradientableOptions) {
         if gradientLayer == nil {
             setupGradientable()
         }
         options.apply(layer: gradientLayer)
     }
     
-    public func set(animation: GradientableAnimation) {
+    func set(animation: GradientableAnimation) {
         if gradientLayer == nil {
             setupGradientable()
         }
